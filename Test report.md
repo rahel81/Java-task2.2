@@ -1,19 +1,10 @@
+Отчёт о тестировании приложения "Precision"
+============
 Краткое описание
---------------------
-Проверить работу бонусного приложения компании на точность начисления бонуса
+----------------------
+21.12.2020 было проведено тестирование приложения "Precision". На тестирование затрачено 15 минут
 
-Дата начала: 21.12.2020  
-Дата окончания: 21.12.2020  
-На тестирование затрачено: 20 минут  
-
-### В результате тестирования выявлены следующие дефекты:  
-• Итоговая сумма считается неверно <https://github.com/rahel81/Java-task2.2/issues/1>
-
-## Описание процесса тестирования:
-
-### В процессе тестирования использовались следующие артефакты:  
-• Программа IntelliJ IDEA  
-• Код   
+Создаём базовое приложение в IntelliJ IDEA, вводим код:  
 ``` java
 public class Main {
   public static void main(String[] args) {
@@ -24,13 +15,28 @@ public class Main {
   }
 }
 ```
+Описание тестов
+-------
+Проводилось функциональное, позитивное/негативное тестирование приложения "Precision".
 
-### Ожидаемый результат тестирования:  
-Бонус составит 0.9
+Результаты
+------------------
+Фактический результат - не успешный тест
+Баг репорт [Bonus system makes an incorrect calculation #1](https://github.com/rahel81/Java-task2.2/issues/1)
 
-### Фактический результат тестирования:  
-"C:\Program Files\AdoptOpenJDK\jdk-11.0.9.101-hotspot\bin\java.exe" -javaagent:C:\Users\user\AppData\Local\JetBrains\Toolbox\apps\IDEA-C\ch-0\203.5981.155\lib\idea_rt.jar=53821:C:\Users\user\AppData\Local\JetBrains\Toolbox\apps\IDEA-C\ch-0\203.5981.155\bin -Dfile.encoding=UTF-8 -classpath "C:\Users\user\Desktop\Тесты\JAVA\Task 2\Java-task2.2\out\production\src" Main
-0.8999999999999999
+Общие рекомендации
+-------------------
+Возможно изменить тип переменной с double на float
+```java
+public class Main {
+        public static void main(String[] args) {
+            float regularBonus = 0.3F;
+            float specialBonus = 0.6F;
+            float totalBonus = regularBonus + specialBonus;
+            System.out.println(totalBonus);
+        }
+}
+```
 
 ### Тестирование производилось в следующем окружении:  
 • Windows 7 Professional, x64  
